@@ -1,38 +1,8 @@
 var pmx = require('pmx');
 var got = require('got');
 
-/******************************
- *    ______ _______ ______
- *   |   __ \   |   |__    |
- *   |    __/       |    __|
- *   |___|  |__|_|__|______|
- *
- *      PM2 Module Sample
- *
- ******************************/
+var config = require('./config.json');
 
-/**
- *    Module system documentation
- *       http://bit.ly/1hnpcgu
- *
- *   Start module in development mode
- *          $ cd to my-module
- *          $ pm2 install .
- *
- *  Official modules are published here
- *      https://github.com/pm2-hive
- */
-
-/**
- *           Module Entry Point
- *
- *  We first initialize the module by calling
- *         pmx.initModule({}, cb);
- *
- *
- * More options: http://bit.ly/1EpagZS
- *
- */
 pmx.initModule({
 
   // Options related to the display style on Keymetrics
@@ -111,7 +81,7 @@ pmx.initModule({
   });
 
   setInterval(function () {
-    got('http://api.openweathermap.org/data/2.5/weather?q=Paris&units=metric&APPID=0112998f14cc3792ffa3fbec02eb37b0').then((data) => {
+    got('http://api.openweathermap.org/data/2.5/weather?q=Paris&units=metric&APPID=' + config.token).then((data) => {
       valueToInspect = JSON.parse(data.body).main.temp + '°C';
     }).catch((err) => {
       console.log(err);
