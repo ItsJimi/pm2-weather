@@ -1,19 +1,19 @@
 {
   "name": "weather",
-  "version": "1.0.0",
-  "description": "PM2 Sample Module",
+  "version": "1.0.1",
+  "description": "Get weather on your dashboard",
   "main": "app.js",
   "dependencies": {
     "got": "^6.7.1",
-    "pmx": "beta"
+    "pmx": "latest"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/keymetrics/pmx.git"
+    "url": "git@github.com:ItsJimi/pm2-weather.git"
   },
   "config": {
-    "conf_var_1": true,
-    "conf_var_2": "myvalue"
+    "token": "",
+    "city": "Paris"
   },
   "apps": [
     {
@@ -22,6 +22,6 @@
       "script": "app.js"
     }
   ],
-  "author": "Keymetrics Inc.",
+  "author": "Jimi M",
   "license": "MIT"
 }
